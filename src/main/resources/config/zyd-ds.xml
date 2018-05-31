@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+<!-- 配置dataSource -->
+	<bean name="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/zyd_dev?allowMultiQueries=true"/>
+		<property name="username" value="root"/>
+		<property name="password" value="admin"/>
+		<property name="initialSize" value="20"/>
+		<property name="maxActive" value="200"/>
+		<property name="minIdle" value="50"/>
+		<property name="maxWait" value="1000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="1000"/>
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="600"/>
+		<property name="logAbandoned" value="true"/>
+<!-- 		<property name="poolPreparedStatements" value="${mpayrecon.poolPreparedStatements}"/> -->
+<!-- 		<property name="maxPoolPreparedStatementPerConnectionSize" value="${mpayrecon.maxPoolPreparedStatementPerConnectionSize}"/> -->
+<!-- 		<property name="validationQuery" value="${mpayrecon.validationQuery}"/> -->
+<!-- 		<property name="testOnBorrow" value="${mpayrecon.testOnBorrow}"/> -->
+<!-- 		<property name="testOnReturn" value="${mpayrecon.testOnReturn}"/> -->
+<!-- 		<property name="testWhileIdle" value="${mpayrecon.testWhileIdle}"/> -->
+<!-- 		<property name="minEvictableIdleTimeMillis" value="${mpayrecon.minEvictableIdleTimeMillis}"/> -->
+<!-- 		<property name="filters" value="${mpayrecon.filters}"/> -->
+	</bean>
+
+	<!-- 配置sqlSessionFactory-->
+	<bean id="masterSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:config/mybatis.xml" />
+		<property name="dataSource" ref="masterDataSource"/>
+	</bean>
+	
+	<bean id="masterSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">  
+		<constructor-arg index="0" ref="masterSqlSessionFactory" /> 
+    </bean> 
+    
+    <!-- 只读mybatis操作接口扫描 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.zyd.dao" />
+		<property name="sqlSessionFactoryBeanName" value="masterSqlSessionFactory" />
+	</bean> 
+	
+</beans>
