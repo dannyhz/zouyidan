@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
  *
  */
 @Alias("LoanApplication")
-public class LoanApplicationDO {
+public class LoaneeDO {
 	
 	private Long loanApplicationId; 
 	private String applicationNo;

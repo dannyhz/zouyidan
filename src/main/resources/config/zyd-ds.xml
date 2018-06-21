@@ -5,18 +5,18 @@
 
 <!-- 配置dataSource -->
 	<bean name="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/zyd_dev?allowMultiQueries=true"/>
-		<property name="username" value="root"/>
-		<property name="password" value="admin"/>
-		<property name="initialSize" value="20"/>
-		<property name="maxActive" value="200"/>
-		<property name="minIdle" value="50"/>
-		<property name="maxWait" value="1000"/>
-		<property name="timeBetweenEvictionRunsMillis" value="1000"/>
-		<property name="removeAbandoned" value="true"/>
-		<property name="removeAbandonedTimeout" value="600"/>
-		<property name="logAbandoned" value="true"/>
+		<property name="driverClassName" value="${zyd.jdbc.driverClassName}" />
+		<property name="url" value="${zyd.jdbc.url}"/>
+		<property name="username" value="${zyd.jdbc.username}"/>
+		<property name="password" value="${zyd.jdbc.password}"/>
+		<property name="initialSize" value="${zyd.initialSize}"/>
+		<property name="maxActive" value="${zyd.maxActive}"/>
+		<property name="minIdle" value="${zyd.minIdle}"/>
+		<property name="maxWait" value="${zyd.maxWait}"/>
+		<property name="timeBetweenEvictionRunsMillis" value="${zyd.timeBetweenEvictionRunsMillis}"/>
+		<property name="removeAbandoned" value="${zyd.removeAbandoned}"/>
+		<property name="removeAbandonedTimeout" value="${zyd.removeAbandonedTimeout}"/>
+		<property name="logAbandoned" value="${zyd.logAbandoned}"/>
 <!-- 		<property name="poolPreparedStatements" value="${mpayrecon.poolPreparedStatements}"/> -->
 <!-- 		<property name="maxPoolPreparedStatementPerConnectionSize" value="${mpayrecon.maxPoolPreparedStatementPerConnectionSize}"/> -->
 <!-- 		<property name="validationQuery" value="${mpayrecon.validationQuery}"/> -->

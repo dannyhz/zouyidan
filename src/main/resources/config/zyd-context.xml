@@ -12,15 +12,17 @@
     <import resource="classpath*:config/zyd-ds.xml"/> 
     
 
-<!--      <bean id="propertyConfigurer" class="com.sunrun.mpos.common.core.PropertiesHolder" init-method="initPropertiesHolder"> -->
-<!--   		<property name="osName" value="#{systemProperties['os.name']}"/> -->
-<!--  		<property name="envs"> -->
-<!--  			<map> -->
-<!--  				<entry key="windows" value="file:C:/PROJECT_SETTING_FILES/MPAY/scheduler/config.properties"/> -->
-<!--  				<entry key="linux" value="file:/etc/_CONFIG/mpayscheduler/config.properties"/> -->
-<!--  			</map> -->
-<!--  		</property> -->
-<!--     </bean>  -->
+     <bean id="propertyConfigurer" class="com.zyd.common.PropertiesHolder" init-method="initPropertiesHolder">
+  		<property name="osName" value="#{systemProperties['os.name']}"/>
+ 		<property name="envs">
+ 			<map>
+ 				<entry key="windows" value="file:C:/PROJECT_SETTING_FILES/ZouYiDan/config.properties"/>
+ 				<entry key="linux" value="file:/etc/_CONFIG/mpayscheduler/config.properties"/>
+ 			</map>
+ 		</property>
+    </bean> 
+    
+    
     
 <!--        <bean id="propertyConfigurer" class="com.sunrun.mpos.common.core.PropertiesHolder"> -->
 <!--         <property name="locations"> -->
