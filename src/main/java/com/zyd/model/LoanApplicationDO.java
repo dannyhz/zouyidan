@@ -12,7 +12,7 @@ public class LoanApplicationDO {
 	
 	private Long loanApplicationId; 
 	private String applicationNo;
-	private String applyStatus;
+	private String status;
 	private Long loaneeId;	
 	
 	//product
@@ -20,6 +20,8 @@ public class LoanApplicationDO {
 	
 	//process_template
 	private String templateCode;
+	
+	private Long productId;
 	
 	public Long getProcessTemplateId() {
 		return processTemplateId;
@@ -52,12 +54,16 @@ public class LoanApplicationDO {
 	public void setLoaneeId(Long loaneeId) {
 		this.loaneeId = loaneeId;
 	}
-	public String getApplyStatus() {
-		return applyStatus;
+	public String getStatus() {
+		return status;
 	}
-	public void setApplyStatus(String applyStatus) {
-		this.applyStatus = applyStatus;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	
-
+	public Long getProductId() {
+		return productId;
+	}
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
 }

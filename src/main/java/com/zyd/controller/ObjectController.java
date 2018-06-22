@@ -31,11 +31,11 @@ public class ObjectController {
 		  
 		  List<LoanApplicationDO> applyList = new ArrayList<LoanApplicationDO>();
 		  LoanApplicationDO apply1 = new LoanApplicationDO();
-		  apply1.setApplyStatus("111");
+		  apply1.setStatus("111");
 		  apply1.setApplicationNo("app00000001");
 		  
 		  LoanApplicationDO apply2 = new LoanApplicationDO();
-		  apply2.setApplyStatus("222");
+		  apply2.setStatus("222");
 		  apply2.setApplicationNo("app0000002");
 		  
 		  applyList.add(apply1);
@@ -63,7 +63,7 @@ public class ObjectController {
 			 application.setApplyId(1000L);
 			 ArrayList aList = new ArrayList();
 			 LoanApplicationDO apply = new LoanApplicationDO();
-			 apply.setApplyStatus("READY");
+			 apply.setStatus("READY");
 			 aList.add(apply);
 			 application.setAppList(aList);
 			 rslt.setSuccessData(application);

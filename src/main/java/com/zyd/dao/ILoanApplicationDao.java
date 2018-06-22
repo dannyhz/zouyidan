@@ -39,5 +39,9 @@ public interface ILoanApplicationDao {
 	 *
 	 */
 	List<LoanApplicationDO> queryLoanApplicationByStatus(LoanApplicationDO queryDO);
+	
+	int updateById(LoanApplicationDO queryDO);
+	
+	List<LoanApplicationDO> queryApplicationByDate(LoanApplicationDO queryDO);
 
 }

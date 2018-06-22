@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.1//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zyd.dao.ILoanApplicationDao">
+<mapper namespace="com.zyd.dao.ITaskDao">
 	
 	<sql id="all_columns">
 		    loanee_id,           
 		    apply_status
 	</sql>
 	
-	<insert id="insert" parameterType="com.zyd.model.LoanApplicationDO">
+	<insert id="insert" parameterType="com.zyd.model.TaskDO">
 		insert into
 			b_loan_application(<include refid="all_columns"/>)
 		values(
@@ -17,7 +17,7 @@
 	</insert>
 	
 	<!-- 根据id 得到 申请 -->
-	<select id="queryApplicationById" parameterType="com.zyd.model.LoanApplicationDO" resultType="com.zyd.model.LoanApplicationDO">
+	<select id="queryApplicationById" parameterType="com.zyd.model.TaskDO" resultType="com.zyd.model.TaskDO">
 		select 
 			loan_application_id 
 		from
@@ -32,7 +32,7 @@
 	
 	
 	<!-- 根据 状态 得到 申请记录列表 -->
-	<select id="queryLoanApplicationByStatus" parameterType="com.zyd.model.LoanApplicationDO" resultType="com.zyd.model.LoanApplicationDO">
+	<select id="queryLoanApplicationByStatus" parameterType="com.zyd.model.TaskDO" resultType="com.zyd.model.TaskDO">
 		select 
 			a.loan_application_id, a.loanee_id, a.apply_status, a.salesman_id, a.product_id, p.product_name, t.template_code 
 		from
@@ -48,7 +48,7 @@
 	
 	
 	<!-- 判断是否存在 -->
-	<select id="isExist" parameterType="com.zyd.dto.LoanApplicationDTO" resultType="int">
+	<select id="isExist" parameterType="com.zyd.model.TaskDO" resultType="int">
 		select 
 			count(*)
 		from
@@ -58,29 +58,6 @@
 				apply_person_id = #{personId}
 			</if>
 			
-		</where>
-		
-	</select>
-	
-	
-	<update id="updateById" parameterType="com.zyd.model.LoanApplicationDO">
-    update b_loan_application 
-    <set>
-    	<if test="status != null">
-    		status = #{status}
-    	</if>
-    </set> 
-     where loan_application_id = #{loanApplicationId}
-    </update>
-    
-    <!-- 查询出最近7天的申请单  -->
-	<select id="queryApplicationByDate" parameterType="com.zyd.model.LoanApplicationDO" resultType="com.zyd.model.LoanApplicationDO">
-		select 
-			loan_application_id,application_no,loanee_id,status
-		from
-			b_loan_application 
-		<where>
-			created_at &gt; date_format(date_add(now(), interval - 7 day),'%Y-%m-%d')
 		</where>
 		
 	</select>

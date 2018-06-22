@@ -25,7 +25,7 @@ public class LoanApplicationDaoTest {
 		 //System.out.println(loanAppDao);
 		 LoanApplicationDO loanApp = new LoanApplicationDO();
 		 loanApp.setLoaneeId(1000L);
-		 loanApp.setApplyStatus("COMMIT");
+		 loanApp.setStatus("COMMIT");
 		 loanAppDao.insert(loanApp);
 		
 	}
@@ -49,6 +49,15 @@ public class LoanApplicationDaoTest {
 		 
 		 
 		 System.out.println(application.getTemplateCode()); 
+	}
+	
+	@Test
+	public void suppose_update_status_by_application_Id(){
+		ILoanApplicationDao loanAppDao = act.getBean(ILoanApplicationDao.class);
+		LoanApplicationDO loanAppDO = new LoanApplicationDO();
+		loanAppDO.setLoanApplicationId(1L);
+		loanAppDO.setStatus("COMMIT");
+		System.out.println("return = " + loanAppDao.updateById(loanAppDO));
 	}
 	
 }

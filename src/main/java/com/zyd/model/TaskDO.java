@@ -13,6 +13,7 @@ public class TaskDO {
 	String crntOperType;
 	Date createdAt;
 	String status;
+	
 	public Long getTaskId() {
 		return taskId;
 	}

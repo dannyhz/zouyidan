@@ -27,7 +27,7 @@ public class LoanApplicationController {
 		 application.setApplyId(1000L);
 		 LoanApplicationDO apply = new LoanApplicationDO();
 		 
-		 apply.setApplyStatus("commit");
+		 apply.setStatus("commit");
 		 apply.setLoaneeId(1000L);
 		 
 		 
