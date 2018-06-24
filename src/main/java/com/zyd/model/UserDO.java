@@ -4,7 +4,8 @@ import java.sql.Date;
 
 public class UserDO {
 	
-	Long phoneCheckRecordId;
+	private Long userId;
+	
 	Long loanApplicatiionId;
 	String phoneCheckRecordNo;
 	String status;
@@ -13,24 +14,7 @@ public class UserDO {
 	String createdBy;
 	Date lastUpdatedAt;
 	String lastUpdatedBy;
-	public Long getPhoneCheckRecordId() {
-		return phoneCheckRecordId;
-	}
-	public void setPhoneCheckRecordId(Long phoneCheckRecordId) {
-		this.phoneCheckRecordId = phoneCheckRecordId;
-	}
-	public Long getLoanApplicatiionId() {
-		return loanApplicatiionId;
-	}
-	public void setLoanApplicatiionId(Long loanApplicatiionId) {
-		this.loanApplicatiionId = loanApplicatiionId;
-	}
-	public String getPhoneCheckRecordNo() {
-		return phoneCheckRecordNo;
-	}
-	public void setPhoneCheckRecordNo(String phoneCheckRecordNo) {
-		this.phoneCheckRecordNo = phoneCheckRecordNo;
-	}
+	
 	public String getStatus() {
 		return status;
 	}
