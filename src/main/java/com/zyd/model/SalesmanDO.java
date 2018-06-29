@@ -15,15 +15,27 @@ public class SalesmanDO {
 	private String status;//状态 
 	private String memo;
 	private Long channelId;
+	
+	private String channelCode;
 	private Date registerDate;
 	private Date createdAt;
 	private String createdBy;
+	
 	private Date lastUpdatedAt;
 	private String lastUpdatedBy;
 	
 	private String userName;
 	private String channelName;
+	private String password;
 	
+	private String loginVerifyCode;
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getChannelName() {
 		return channelName;
 	}
@@ -133,6 +145,16 @@ public class SalesmanDO {
 	public void setLastUpdatedBy(String lastUpdatedBy) {
 		this.lastUpdatedBy = lastUpdatedBy;
 	}
-	
-
+	public String getChannelCode() {
+		return channelCode;
+	}
+	public void setChannelCode(String channelCode) {
+		this.channelCode = channelCode;
+	}
+	public String getLoginVerifyCode() {
+		return loginVerifyCode;
+	}
+	public void setLoginVerifyCode(String loginVerifyCode) {
+		this.loginVerifyCode = loginVerifyCode;
+	}
 }

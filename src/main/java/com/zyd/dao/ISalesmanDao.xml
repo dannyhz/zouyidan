@@ -16,7 +16,7 @@
 		email
 	</sql>
 	
-	<insert id="insert" parameterType="com.zyd.model.SalesmanDO">
+	<insert id="insert" parameterType="com.zyd.model.SalesmanDO" useGeneratedKeys="true" keyProperty="salesmanId">
 		insert into
 			salesman(id_no, 
 					id_type, 
@@ -43,7 +43,7 @@
 	
 	</insert>
 	
-	<insert id="update" parameterType="com.zyd.model.SalesmanDO">
+	<update id="update" parameterType="com.zyd.model.SalesmanDO">
 		update 
 			salesman
 			<set>
@@ -65,7 +65,7 @@
 				
 			</where> 		 
 	
-	</insert>
+	</update>
 	
 	<select id="queryList" parameterType="com.zyd.model.SalesmanDO" 
 								resultType="com.zyd.model.SalesmanDO">

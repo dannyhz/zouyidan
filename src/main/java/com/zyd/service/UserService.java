@@ -14,6 +14,12 @@ public class UserService {
 	@Resource
 	private IUserDao userDao;
 	
+	public UserDO saveUser(UserDO user){
+		int i = userDao.insertUser(user);
+		return user;
+	}
+	
+	
 	public UserDO getUser(UserDO user){
 		List<UserDO> userList = userDao.queryUser(user);
 		if(userList.size() > 0){

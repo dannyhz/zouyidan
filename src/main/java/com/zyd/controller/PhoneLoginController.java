@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,13 @@ public class PhoneLoginController {
 	  public JsonResultDO chekPhoneNo(UserDO user) {
 		  
 		  JsonResultDO result = new JsonResultDO();
+		  
+		  if(StringUtils.isEmpty(user.getPhone())){
+		      result.setSuccess(false);
+		      result.setStatusCode("100");
+		      result.setMessage("手机号码不能为空");
+		      return result;
+		  }
 		  
 		  if(userService.getUserByPhone(user.getPhone()) == null){
 			  result.addAttribute("isRegister", "false");  

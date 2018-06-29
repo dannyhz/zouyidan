@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.1//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyd.dao.IChannelVendorDao">
+	
+	<insert id="insertChannelVendor" parameterType="com.zyd.model.ChannelVendorDO">
+		insert into
+			b_channel_vendor(channel_code, channel_name, status, biz_type, memo)
+		values(
+		    #{channelCode},          
+		    #{channelName},
+		    #{status},
+		    #{bizType},
+		    #{memo}
+		)
+	</insert>
+	
+	<select id="queryChannelVendor" parameterType="com.zyd.model.ChannelVendorDO" resultType="com.zyd.model.ChannelVendorDO">
+		select 
+			channel_id,channel_code, channel_name, status, biz_type, memo
+		from
+			b_channel_vendor 
+		<where>
+			<if test="channelCode != null and channelCode != ''">
+				and channel_code = #{channelCode}
+			</if>
+		</where>
+		
+	</select>
+
+	
+</mapper>
